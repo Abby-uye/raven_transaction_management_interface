@@ -212,29 +212,29 @@ const Dashboard: React.FC = () => {
 
                     <div className={styles.box}>
                         <div className={styles.ashCont}>
-                            <div>
+                            <div className={styles.heading}>
                                 <h4>
                                     Total Balance
                                 </h4>
                             </div>
 
                             <div className={styles.money}>
-                                <p>N87K <span>+1 today</span></p>
-                                <p style={{color:"#7000F6"}}>View details</p>
+                                <p className={styles.moneyP}>N87K <span>+1 today</span></p>
+                                <p style={{color:"#7000F6"}} className={styles.viewDetails}>View details</p>
 
                             </div>
                         </div>
 
                         <div className={styles.ashCont}>
-                            <div>
+                            <div className={styles.heading}>
                                 <h4>
                                     Total Credit
                                 </h4>
                             </div>
 
                             <div className={styles.money}>
-                                <p>234,120</p>
-                                <p style={{color:"#008000"}}>View details</p>
+                                <p className={styles.moneyP}>234,120</p>
+                                <p style={{color:"#008000"}} className={styles.viewDetails}>View details</p>
 
                             </div>
                         </div>
@@ -242,15 +242,15 @@ const Dashboard: React.FC = () => {
 
                         <div className={styles.ashCont}>
 
-                            <div>
+                            <div className={styles.heading}>
                                 <h4>
                                     Total Debit
                                 </h4>
                             </div>
 
                             <div className={styles.money}>
-                                <p>N923K <span>+5% today</span></p>
-                                <p style={{color:"#FF0000"}}>View details</p>
+                                <p className={styles.moneyP}>N923K <span>+5% today</span></p>
+                                <p style={{color:"#FF0000"}} className={styles.viewDetails}>View details</p>
 
                             </div>
 
