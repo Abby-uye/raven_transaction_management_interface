@@ -2,6 +2,7 @@
 import styles from './index.module.css';
 import React,{ useState } from 'react';
 import logo from "../../assets/spatch.png";
+import {useNavigate} from "react-router-dom";
 const CreateAnAccount: React.FC = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -12,11 +13,40 @@ const CreateAnAccount: React.FC = () => {
     localStorage.setItem("token", tokens);
     const storage = localStorage.getItem("token")
     console.log(storage);
+    const navigate = useNavigate();
+
+
+
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if (firstName !== ""){
+            setFirstName(firstName);
+            localStorage.setItem("firstName", firstName);
+        }
+        if (lastName !== ""){
+            setLastName(lastName);
+            localStorage.setItem("lastName", lastName);
+        }
+
+        if (password !== ""){
+            setPassword(password)
+            localStorage.setItem("password",password);
+        }
+
+        if (email !== ""){
+            setEmail(email);
+            localStorage.setItem("email", email);
+        }
+
+            if(password !== "" && firstName !== "" && lastName !== "" && email !== ""){
+                        navigate("/sign_in")}
+
+
 
     };
+
     return (
         <div className={styles.appLogo}>
             <div className={styles.signUpDiv}>
@@ -32,30 +62,40 @@ const CreateAnAccount: React.FC = () => {
                                 type="text"
                                 name="firstName"
                                 placeholder={"Enter first name"}
-                                required
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                required={true}
                             />
 
                             <label className={styles.formLabel}>Last name <span style={{color: "red"}}>*</span></label>
-                            <input
+                             <input
                                 type="text"
                                 name="lastName"
                                 placeholder={"Enter last name"}
-                                required
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                                required={true}
 
                             />
+
                             <label className={styles.formLabel}>Email Address <span
                                 style={{color: "red"}}>*</span></label>
-                            <input
+                              <input
                                 type="text"
                                 name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 placeholder={"Enter email"}
+                                required={true}
                             />
                             <label className={styles.formLabel}>Password <span style={{color: "red"}}>*</span></label>
                             <input
                                 type="password"
                                 name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 placeholder={"Enter password"}
-                                required
+                                required={true}
 
                             />
                         </div>

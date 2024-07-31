@@ -6,6 +6,9 @@ import downArrowIcon from "../../../assets/downArrorIcon.png"
 
 import styles from "./index.module.css"
 const NavBar:React.FC = ()=>{
+    const lastName = localStorage.getItem("lastName");
+    const firstName = localStorage.getItem("firstName")
+
     return(
         <div className={styles.navBar}>
             <div className={styles.logo} >
@@ -20,7 +23,7 @@ const NavBar:React.FC = ()=>{
 
                 </div>
 
-                <div className={styles.userName}>Tee</div>
+                <div className={styles.userName}>{firstName}</div>
                 <div>
                     <img src={downArrowIcon} alt={"downArrowIcon"}/>
                 </div>
