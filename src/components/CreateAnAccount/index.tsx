@@ -22,24 +22,40 @@ const CreateAnAccount: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (firstName !== ""){
-            setFirstName(firstName);
-            localStorage.setItem("firstName", firstName);
-        }
-        if (lastName !== ""){
-            setLastName(lastName);
-            localStorage.setItem("lastName", lastName);
+        if (firstName === ""){
+            alert("first name field cannot be empty")
+          return;
         }
 
-        if (password !== ""){
-            setPassword(password)
-            localStorage.setItem("password",password);
+        if (lastName === ""){
+            alert("last name field cannot be empty");
+            return;
         }
 
-        if (email !== ""){
-            setEmail(email);
-            localStorage.setItem("email", email);
+
+        if (password === ""){
+            alert("password field cannot be empty");
+            return;
         }
+
+       if (email === ""){
+           alert("email field cannot be empty");
+           return;
+        }
+
+
+        setFirstName(firstName);
+        localStorage.setItem("firstName", firstName);
+
+
+        setLastName(lastName);
+        localStorage.setItem("lastName", lastName);
+
+        setPassword(password);
+        localStorage.setItem("password",password)
+
+        setEmail(email);
+        localStorage.setItem("email", email);
 
             if(password !== "" && firstName !== "" && lastName !== "" && email !== ""){
                         navigate("/sign_in")}

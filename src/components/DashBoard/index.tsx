@@ -126,12 +126,12 @@ const Dashboard: React.FC = () => {
                 <div className={styles.sideBar}>
                     <div className={styles.userProfile}>
                         <div className={styles.nameAbrv}>
-                            {lastNameAbbrv + " " + firstNameAbbrv}
+                            {lastNameAbbrv + "" + firstNameAbbrv}
                         </div>
 
                         <div className={styles.userDetails}>
                             <span className={styles.name}>{lastName + " " + firstName}</span>
-                            <span>{emailValue}</span>
+                            <span className={styles.email}>{emailValue}</span>
                         </div>
                     </div>
 
@@ -198,13 +198,13 @@ const Dashboard: React.FC = () => {
                 <div>
                     <div className={styles.transactionContainer}>
                         <div className={styles.transaction}>
-                            <h3>Transactions</h3>
+                            <h3 className={styles.transactionHeading}>Transactions</h3>
                             <p>View all your transaction in the list of product</p>
                         </div>
 
-                        <div>
+                        <div className={styles.addBtn}>
                             <img onClick={handleNewTransactionModalOpen} src={addTransactionImage}
-                                 alt={"add transaction"} width={30}/>
+                                 alt={"add transaction"} width={35}/>
                         </div>
 
 
