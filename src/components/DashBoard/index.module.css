@@ -101,7 +101,7 @@
     margin-left: 20px;
     background-color: #F9FAFB;
     padding-left: 20px;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 .transactionValues{
@@ -141,9 +141,9 @@
 
 }
 .action{
-    width: 13px;
-    height: 13px;
-    padding-bottom: 2px;
+    width: 14px;
+    height: 14px;
+    padding-bottom: 5px;
 }
 .actions{
     display: flex;
@@ -216,4 +216,51 @@ display: flex;
 
 .viewDetails{
     margin-top: -10px;
+}
+.numbers{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    border: 1px solid black;
+}
+.numbers img{
+   width: 13px;
+    margin-top: 22px;
+
+}
+.filter{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    border: 1px solid black;
+    width: 50%;
+
+}
+.filter img{
+    width: 13px;
+    margin-top: 24px;
+
+
+
+}
+.searchTransaction{
+    border: 1px solid black;
+    height: 20px;
+    width: 250px;
+
+}
+.transactions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 80px;
+    gap: 250px;
+    margin-top: 20px;
+}
+.innerTransactions{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    width: 40%;
+    align-items: center;
 }

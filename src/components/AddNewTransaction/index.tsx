@@ -23,11 +23,11 @@ const AddNewTransaction:React.FC<AddNewTransactionProps> = ({ isOpen, onClose })
         <div className={`${styles.sidebarOverlay} ${isOpen ? styles.open : ''}`}>
             <div className={styles.addNewTransactionContent}>
                 <button onClick={onClose} className={styles.closeButton}>X</button>
-                <h2>Add New Transaction</h2>
-                <p>Add a new transaction to the table</p>
+                <h2 className={styles.newTransaction}>Add New Transaction</h2>
+                <p className={styles.addNew}>Add a new transaction to the table</p>
                 <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
                     <div className={styles.formGroup}>
-                        <label>Transaction Direction <span style={{color: "red"}}>*</span></label>
+                        <label className={styles.transactionDirection}>Transaction Direction <span style={{color: "red"}}>*</span></label>
                         <input
                             type="text"
                             placeholder="Debit"

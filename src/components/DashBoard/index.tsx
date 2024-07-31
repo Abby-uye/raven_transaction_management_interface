@@ -21,6 +21,10 @@ import {
     faTachometerAlt,
     faUserFriends
 } from '@fortawesome/free-solid-svg-icons';
+import chevronLeft from "../../assets/chevron-left.png"
+import vector from "../../assets/Vector.png"
+import listFilter from "../../assets/list-filter.png"
+import right from "../../assets/right.png"
 
 interface transactionDetails {
      direction : string,
@@ -64,14 +68,7 @@ const Dashboard: React.FC = () => {
 
 
 
-    const [referenceList, setReferenceList] = useState<string[]>([]);
 
-    const [amount, setAmountList] = useState<string[]>([]);
-
-    const [currency, setCurrencyList] = useState<string[]>([]);
-    const [transactionDateList,setTransactionDateList] = useState<string[]>([])
-    const[ updatedLastDateList ,setUpdatedLastDateList] = useState<string[]>([])
-    const [transactionDirction,setTransactionDirection] =useState<String[]>([])
     const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false);
     const [addTransactionModal, setAddTransactionModal] = useState<boolean>(false);
     const [isUpdateModalOpen, setUpdateModalOpen] = useState<boolean>(false);
@@ -220,7 +217,7 @@ const Dashboard: React.FC = () => {
 
                             <div className={styles.money}>
                                 <p className={styles.moneyP}>N87K <span>+1 today</span></p>
-                                <p style={{color:"#7000F6"}} className={styles.viewDetails}>View details</p>
+                                <p style={{color: "#7000F6"}} className={styles.viewDetails}>View details</p>
 
                             </div>
                         </div>
@@ -234,7 +231,7 @@ const Dashboard: React.FC = () => {
 
                             <div className={styles.money}>
                                 <p className={styles.moneyP}>234,120</p>
-                                <p style={{color:"#008000"}} className={styles.viewDetails}>View details</p>
+                                <p style={{color: "#008000"}} className={styles.viewDetails}>View details</p>
 
                             </div>
                         </div>
@@ -250,14 +247,34 @@ const Dashboard: React.FC = () => {
 
                             <div className={styles.money}>
                                 <p className={styles.moneyP}>N923K <span>+5% today</span></p>
-                                <p style={{color:"#FF0000"}} className={styles.viewDetails}>View details</p>
+                                <p style={{color: "#FF0000"}} className={styles.viewDetails}>View details</p>
 
                             </div>
-
                         </div>
-
                     </div>
+                    <div className={styles.transactions}>
+                        <form>
+                            <input
+                                type="text"
+                                placeholder={"Search Transactions"}
 
+                            />
+                        </form>
+                        <div className={styles.innerTransactions}>
+                            <div className={styles.filter}>
+                                <div><img src={listFilter} alt={"filter"}/></div>
+                                <select style={{border:"none",paddingRight:"100px",outline:"none"}} id="filter" name="filter">
+                                    <option style={{marginLeft:"30px"}} value="all">Filters</option>
+                                </select>
+                            </div>
+
+                            <div className={styles.numbers}>
+                                <div><img src={chevronLeft} alt={"left"}/></div>
+                                <p>1- 10 of 240</p>
+                                <div><img style={{width:"6px",marginRight:"2px"}} src={right} alt={"right"}/></div>
+                            </div>
+                        </div>
+                    </div>
                     <div className={styles.transactionTable}>
                         <div>
                             <h3>Reference</h3>
@@ -288,7 +305,7 @@ const Dashboard: React.FC = () => {
 
                         <ul>
                             {reference.map((reference, index) => (
-                                <li key={index}>
+                                <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
                                     <span>{reference}</span>
                                 </li>
                             ))}
@@ -296,7 +313,7 @@ const Dashboard: React.FC = () => {
 
                         <ul>
                             {naira.map((currency, index) => (
-                                <li key={index}>
+                                <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
                                     <span>{currency}</span>
                                 </li>
                             ))}</ul>
@@ -305,7 +322,7 @@ const Dashboard: React.FC = () => {
                             <div className={styles.amountList}>
 
                                 {amounts.map((amount, index) => (
-                                    <li key={index}>
+                                    <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
                                         <span>{amount}</span>
                                     </li>
                                 ))}
@@ -315,7 +332,7 @@ const Dashboard: React.FC = () => {
                             <div className={styles.transactionDateList}>
 
                                 {transaction_date.map((transactionDate, index) => (
-                                    <li key={index}>
+                                    <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
                                         <span>{transactionDate}</span>
                                     </li>
                                 ))}
@@ -325,19 +342,42 @@ const Dashboard: React.FC = () => {
                             <div className={styles.updatedTransactionDateList}>
 
                                 {updated_date.map((updateDate, index) => (
-                                    <li key={index}>
+                                    <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
                                         <span>{updateDate}</span>
                                     </li>
                                 ))}
                             </div>
                         </ul>
 
+                            <ul>
+                                <div className={styles.updatedTransactionDateList}>
+
+                                    {updated_date.map((updateDate, index) => (
+
+
+                                            <li key={index} style={{
+                                                marginTop: "5px",
+                                                borderRadius: "80px",
+                                                borderBottom: "20px",
+                                                fontSize: "15px",
+
+                                            }}>
+
+
+                                        <span style={{color: "#1ACE37", backgroundColor: "#E8FFF6"}}>Success </span>
+                            </li>
+                        ))}
+                    </div>
+                            </ul>
+
+
+
                         <ul>
                             <div className={styles.updatedTransactionDateList}>
 
-                                {updatedLastDateList.map((updateDate, index) => (
-                                    <li key={index}>
-                                        <div className={styles.actions}>
+                                {updated_date.map((updateDate, index) => (
+                                    <li key={index} >
+                                        <div className={styles.actions} style={{marginTop: "5px"}}>
                                             <img onClick={handleOpenUpdateModal} className={styles.action}
                                                  src={editIcon} alt={"edit icon "}/>
                                             <img onClick={handleDeleteModalOpen} className={styles.action}
@@ -351,7 +391,8 @@ const Dashboard: React.FC = () => {
 
                     </div>
                 </div>
-                <DeleteTransaction isOpen={deleteModalOpen} onClose={handleDeleteModalClose} onConfirm={handleConfirmDelete}/>
+                <DeleteTransaction isOpen={deleteModalOpen} onClose={handleDeleteModalClose}
+                                   onConfirm={handleConfirmDelete}/>
                 <AddNewTransaction isOpen={addTransactionModal} onClose={handleCloseTransactionModalClose}/>
                 <UpdateTransaction
                     isOpen={isUpdateModalOpen}

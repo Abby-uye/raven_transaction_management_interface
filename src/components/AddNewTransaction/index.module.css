@@ -1,3 +1,5 @@
+@import "fontcss/fonts.css";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 .sidebarOverlay {
     position: fixed;
     top: 0;
@@ -59,6 +61,7 @@
 .formGroup label {
     display: block;
     margin-bottom: 5px;
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .formGroup input {
@@ -68,16 +71,26 @@
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #811FF7;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
+
 .addButton{
     width: 90%;
+}
+.addNew{
+    font-family: Aeonik,sans-serif;
+    color: gray;
+    margin-top: -10px;
+    font-size: 10px;
+}
+.newTransaction{
+    font-family: Aeonik,sans-serif;
+}
+.transactionDirection{
+
 }
