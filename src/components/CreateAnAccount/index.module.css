@@ -1,6 +1,10 @@
+@import "fontcss/fonts.css";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 .createAccountForm{
 
 }
+
+
 
 .logoDiv{
     width: 107px;
@@ -22,23 +26,25 @@
 .formElements{
     display: flex;
     flex-direction: column;
+    margin-top: -20px;
 }
 .formElements > input{
-    margin-top: 15px;
+    margin-top: 6px;
     height: 40px;
     border-radius: 10px;
     outline: none;
     border: 1px solid #E4E4E7;
     padding-left: 21px;
-    font-size: 16px;
-    font-family: plus jarkata san;
+    font-size: 12px;
+    font-family: "Plus Jakarta Sans", sans-serif;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #71717A;
 }
 .formElements > input::placeholder{
     padding-left: 1px;
-    font-size: 16px;
+    font-size: 12px;
     color: #71717A;
-    font-family: plus jarkata san, serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     line-height: 24px;
     font-weight: 500;
 }
@@ -50,21 +56,24 @@
     border-radius: 10px;
     border: none;
     margin-top: 20px;
+    font-family: "Plus Jakarta Sans", sans-serif;
 
 }
 .createAccount{
-    font-size: 40px;
-    font-weight: 500;
-    font-family: aeonik, serif;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Aeonik,sans-serif;
     color: #0A090B;
+    padding-top: 80px;
 
 }
 .formLabel{
     color: #09090B;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 24px;
-    font-family: plus jarkata san, serif;
-    margin-top: 10px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    margin-top: 15px;
+    font-size: 14px;
 }
 
 .appLogo{

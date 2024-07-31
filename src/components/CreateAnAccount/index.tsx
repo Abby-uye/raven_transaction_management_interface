@@ -3,6 +3,7 @@ import styles from './index.module.css';
 import React,{ useState } from 'react';
 import logo from "../../assets/spatch.png";
 import {useNavigate} from "react-router-dom";
+
 const CreateAnAccount: React.FC = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -54,7 +55,7 @@ const CreateAnAccount: React.FC = () => {
                     <img width={100} src={logo} alt={"logo"}/>
                 </div>
                 <div className={styles.creatAccountContainer}>
-                    <p className={styles.createAccount}>Create Account</p>
+                    <p className={styles.createAccount} style={{fontFamily: ""}}>Create Account</p>
                     <form className={styles.createAccountForm} onSubmit={handleSubmit}>
                         <div className={styles.formElements}>
                             <label className={styles.formLabel}>First name <span style={{color: "red"}}>*</span></label>
@@ -96,7 +97,6 @@ const CreateAnAccount: React.FC = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder={"Enter password"}
                                 required={true}
-
                             />
                         </div>
                         <button className={styles.submitButton} onClick={handleSubmit} type="submit" style={{backgroundColor:"#7000F6"}}>Create Account

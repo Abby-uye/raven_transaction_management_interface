@@ -22,7 +22,6 @@
     justify-content: center;
     height: 528px;
     width: 335px;
-
     left: 500px;
     position: absolute;
 }
@@ -30,29 +29,33 @@
 .formElements{
     display: flex;
     flex-direction: column;
+
+
 }
 .formElements > input{
-    margin-top: 15px;
+    margin-top: 6px;
     height: 40px;
     border-radius: 10px;
     outline: none;
     border: 1px solid #E4E4E7;
     padding-left: 21px;
-    font-size: 16px;
-    font-family: plus jarkata san;
+    font-size: 13px;
+    font-family: "Plus Jakarta Sans", sans-serif;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
 }
 .formElements > input::placeholder{
     padding-left: 1px;
-    font-size: 16px;
+    font-size: 13px;
     color: #71717A;
-    font-family: Inter, serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 500;
 }
 .submitButton{
     width: 335px;
     height: 56px;
+    font-family: "Plus Jakarta Sans", sans-serif;
     background-color:#7000F6;
     color: #FFFFFF;
     border-radius: 10px;
@@ -61,18 +64,19 @@
 
 }
 .createAccount{
-    font-size: 40px;
-    font-weight: 500;
-    font-family: Inter, serif;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Aeonik,sans-serif;
     color: #0A090B;
 
 
 }
 .formLabel{
     color: #09090B;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 24px;
-    font-family: Inter, serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
 
 
 }
