@@ -1,0 +1,86 @@
+.createAccountForm{
+
+}
+
+.logoDiv{
+    width: 107px;
+    height: 24px;
+    margin-top: 56px;
+    margin-left: 48px;
+
+}
+.creatAccountContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 528px;
+    width: 335px;
+    left: 500px;
+
+}
+
+.formElements{
+    display: flex;
+    flex-direction: column;
+}
+.formElements > input{
+    margin-top: 15px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #E4E4E7;
+    padding-left: 21px;
+    font-size: 16px;
+    font-family: plus jarkata san;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.formElements > input::placeholder{
+    padding-left: 1px;
+    font-size: 16px;
+    color: #71717A;
+    font-family: plus jarkata san, serif;
+    line-height: 24px;
+    font-weight: 500;
+}
+.submitButton{
+    width: 335px;
+    height: 56px;
+    background-color: #7000F6;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+
+}
+.createAccount{
+    font-size: 40px;
+    font-weight: 500;
+    font-family: aeonik, serif;
+    color: #0A090B;
+
+}
+.formLabel{
+    color: #09090B;
+    font-weight: 500;
+    line-height: 24px;
+    font-family: plus jarkata san, serif;
+    margin-top: 10px;
+}
+
+.appLogo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.purpleDiv{
+    width: 307px;
+    height: 624px;
+    background-color:  #F0EEFF;
+}
+
+.signUpDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 300px;
+}

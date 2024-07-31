@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.nameAbrv{
+
+}
+
+.userDetails{
+    display: flex;
+    flex-direction: column;
+}
+.name{
+
+}
+
+.sideBar{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 620px;
+    background-color: #7000F6;
+}
+.dashboard{
+    display: flex;
+    flex-direction: row;
+}
+
+.nameAbrv{
+    height: 35px;
+    width: 35px;
+    background-color: #811FF7;
+    border-radius: 18px;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+.userProfile{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 20px;
+    color: white;
+}
+
+.transaction{
+    line-height: 8px;
+    margin-left: 20px;
+}
+
+.transaction h3{
+    font-weight: 500;
+    font-family: Inter;
+}
+
+.transaction p{
+    color: #7F7D83;
+    font-size: 14px;
+}
+
+.transactionContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 600px;
+    margin-top: 20px;
+}
+
+.transactionTable h3{
+    font-weight: 500;
+    font-family: Inter;
+}
+.column{
+    flex: 1;
+    min-width: 120px;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.transactionTable {
+    display: flex;
+    flex-direction: row;
+    gap: 66px;
+    margin-left: 20px;
+    background-color: #F9FAFB;
+    padding-left: 20px;
+    margin-top: 200px;
+}
+
+.transactionValues{
+    display: flex;
+    flex-direction: row;
+}
+.transactionValues ul{
+    font-size: 12px;
+    list-style-type: none;
+}
+
+.amountList{
+    margin-left: -30px;
+}
+.sideBarItems p{
+    color: #FFFFFF;
+
+}
+
+.sideBarItems {
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+}
+.sideBarItems div {
+    text-align: left;
+
+}
+.transactionDateList{
+
+}
+.updatedTransactionDateList{
+
+}
+.action{
+    width: 13px;
+    height: 13px;
+    padding-bottom: 2px;
+}
+.actions{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.ashCont{
+    background-color: #F9F9F9;
+    height: 110px;
+    width: 250px;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+.sideIcons{
+display: flex;
+    color: #FFFFFF;
+    gap: 10px;
+}
+.sideIcons p {
+    margin: 0;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+}
+
+.money{
+    line-height: 5px;
+}
