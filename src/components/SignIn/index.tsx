@@ -37,38 +37,60 @@ const SignIn :React.FC = ()=>{
     };
 
     return (
-        <div className={styles.mainCont}>
-            <div className={styles.logoDiv}>
-                <img src={logo} alt={"logo"} width={100} className={styles.logoImage}/>
+        <div className="flex flex-col  lg:flex-row min-h-screen bg-white">
+
+            <div  style={{position:"absolute",top:"56px",left:"117.19px"}}>
+                <img className="w-24" src={logo} alt="logo"/>
             </div>
-            <div className={styles.creatAccountContainer}>
-                <p className={styles.createAccount}>Sign In</p>
-                <form className={styles.createAccountForm} onSubmit={handleSubmit}>
-                    <div className={styles.formElements}>
-                        <label className={styles.formLabel}>Email Address <span style={{color: "red"}}>*</span></label>
+            <div className="lg:w-[384px] bg-[#F0EEFF]  hidden lg:block"></div>
+
+
+            <div className="max-w-md  w-[335px] top-[155px] lg:left-[580px] gap-[40px]" style={{position: "absolute"}}>
+                <p className="text-2xl font-aeonik  text-custom-black lg:w-[335px] "
+                   style={{fontWeight: 500, fontSize: 40}}
+                >Sign in</p>
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                        <label className="block text-custom-colourtext font-plus-jakarta mb-2"
+                               style={{fontWeight: 500, fontSize: 16, lineHeight: "24px"}}>Email<span
+                            className="text-red-500">*</span></label>
                         <input
                             type="email"
-                            name="email"
-                            placeholder={"Enter email"}
+                            placeholder="Enter Email Address"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            required={true}
+                            required
+                            className="w-[330px] h-10  pl-3 rounded-md text-custom-placeholder-color shadow-md placeholder-custom-placeholder-color  outline-none"
+                            style={{border: "1px solid #E4E4E7"}}
                         />
-                        <label className={styles.formLabel} style={{marginTop:"20px"}} >Password <span style={{color: "red"}}>*</span></label>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-custom-colourtextn font-plus-jakarta mb-2"
+                               style={{fontWeight: 500, fontSize: 16, lineHeight: "24px"}}>Password<span
+                            className="text-red-500">*</span></label>
                         <input
                             type="password"
-                            name="password"
-                            placeholder={"Enter password"}
+                            placeholder="Enter password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
+                            className="w-[330px] h-10 shadow-md pl-3  rounded-md text-gray-800 placeholder-custom-placeholder-color pl-3 outline-none"
 
+                            style={{border: "1px solid #E4E4E7"}}
                         />
                     </div>
-                    <button style={{backgroundColor:"#7000F6"}} className={styles.submitButton} onClick={handleSubmit} type="submit">Sign In</button>
                 </form>
+                <button
+                    className="w-[335px] h-10  outline-none border-none bg-custom-purple text-white  font-bold rounded mt-10 "
+                    type="submit"
+                    style={{backgroundColor: "#7000F6"}}
+                >
+                    Sign in
+                </button>
             </div>
+
+
         </div>
     );
-}
+};
 export default SignIn

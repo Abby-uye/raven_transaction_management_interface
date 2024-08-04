@@ -27,15 +27,15 @@ import listFilter from "../../assets/list-filter.png"
 import right from "../../assets/right.png"
 
 interface transactionDetails {
-     direction : string,
-     email: string,
-     id: number,
-     reference: string,
-     created_at: string,
-     updated_at: string,
-     _value: number,
+    direction : string,
+    email: string,
+    id: number,
+    reference: string,
+    created_at: string,
+    updated_at: string,
+    _value: number,
     currency: string,
- }
+}
 const Dashboard: React.FC = () => {
     const authenticationToken = "RVSEC-8bb756a159b787007fa50b556b45d11d0b49c0c0c0a7b47b3364fa7d094009d2b404a106a71103b9aecb33f73b82f5be-1662632092469";
     localStorage.setItem("token", authenticationToken);
@@ -164,7 +164,7 @@ const Dashboard: React.FC = () => {
                         </div>
                         <div className={styles.sideIcons}>
                             <div>
-                               < FontAwesomeIcon icon={faPiggyBank}/>
+                                < FontAwesomeIcon icon={faPiggyBank}/>
                             </div>
 
                             <p>Savings</p>
@@ -177,7 +177,7 @@ const Dashboard: React.FC = () => {
                         </div>
                         <div className={styles.sideIcons}>
                             <div>
-                            <FontAwesomeIcon icon={faChartBar} />
+                                <FontAwesomeIcon icon={faChartBar} />
                             </div>
                             <p>Report</p>
                         </div>
@@ -349,26 +349,26 @@ const Dashboard: React.FC = () => {
                             </div>
                         </ul>
 
-                            <ul>
-                                <div className={styles.updatedTransactionDateList}>
+                        <ul>
+                            <div className={styles.updatedTransactionDateList}>
 
-                                    {updated_date.map((updateDate, index) => (
+                                {updated_date.map((updateDate, index) => (
 
 
-                                            <li key={index} style={{
-                                                marginTop: "5px",
-                                                borderRadius: "80px",
-                                                borderBottom: "20px",
-                                                fontSize: "15px",
+                                    <li key={index} style={{
+                                        marginTop: "5px",
+                                        borderRadius: "80px",
+                                        borderBottom: "20px",
+                                        fontSize: "15px",
 
-                                            }}>
+                                    }}>
 
 
                                         <span style={{color: "#1ACE37", backgroundColor: "#E8FFF6"}}>Success </span>
-                            </li>
-                        ))}
-                    </div>
-                            </ul>
+                                    </li>
+                                ))}
+                            </div>
+                        </ul>
 
 
 
@@ -407,4 +407,3 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-

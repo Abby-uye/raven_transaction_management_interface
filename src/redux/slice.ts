@@ -21,14 +21,14 @@ export const apiSlice = createApi({
             query: () => '/v1/accounts/transactions',
         }),
 
-        getPayments: builder.query({
-            query: () => '/v1/accounts/payment',
-        })
+        // getPayments: builder.query({
+        //     query: () => '/v1/accounts/payment',
+        // })
     }),
 
 
 });
 
-export const { useGetTransactionsQuery, useGetPaymentsQuery } = apiSlice;
+export const { useGetTransactionsQuery } = apiSlice;
 
 

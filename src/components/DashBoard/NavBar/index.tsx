@@ -6,6 +6,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import styles from "./index.module.css"
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 
+
+
 const NavBar:React.FC = ()=>{
     const lastName = localStorage.getItem("lastName");
     const firstName = localStorage.getItem("firstName")
