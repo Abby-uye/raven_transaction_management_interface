@@ -54,13 +54,13 @@ const CreateAnAccount: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col  lg:flex-row min-h-screen bg-white">
+        <div className="flex flex-col  lg:flex-row justify-between min-h-screen bg-white">
             <div className="mt-10">
                 <img className="w-24" src={logo} alt="logo"/>
             </div>
-            <div className="flex flex-1 justify-center lg:flex-row lg:justify-between  bg-white p-4 lg:p-8">
-                <div className="max-w-md  w-[335px] top-[155px] left-[28px] gap-[40px]">
-                        <p className="text-2xl font-aeonik  text-custom-black lg:w-[335px] "
+
+                <div className="max-w-md  w-[335px] top-[155px] left-[380px] gap-[40px]" style={{position: "absolute"}}>
+                        <p className="text-2xl font-aeonik mb-6 text-custom-black lg:w-[335px] "
                         style={{fontWeight:500,fontSize:40}}
                         >Create Account</p>
                         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -127,7 +127,7 @@ const CreateAnAccount: React.FC = () => {
                         </form>
                     </div>
 
-            </div>
+
             <div className="lg:w-[384px] bg-[#F0EEFF] hidden lg:block"></div>
         </div>
     );

@@ -45,7 +45,7 @@ const SignIn :React.FC = ()=>{
             <div className="lg:w-[384px] bg-[#F0EEFF]  hidden lg:block"></div>
 
 
-            <div className="max-w-md  w-[335px] top-[155px] lg:left-[580px] gap-[40px]" style={{position: "absolute"}}>
+            <div className="max-w-md  w-[335px] top-[155px] xl:left-[580px] gap-[40px]" style={{position: "absolute"}}>
                 <p className="text-2xl font-aeonik  text-custom-black lg:w-[335px] "
                    style={{fontWeight: 500, fontSize: 40}}
                 >Sign in</p>
