@@ -54,12 +54,17 @@ const CreateAnAccount: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col  lg:flex-row justify-between min-h-screen bg-white">
-            <div className="mt-10">
-                <img className="w-24" src={logo} alt="logo"/>
+        <div className="flex flex-col max-h-screen lg:relative lg:flex-row lg:justify-between min-h-screen bg-white">
+            <div className=" iphone-14-pro-max:absolute left-[24px] top-[56px] lg:mt-10 ml-10">
+                <img className="w-24 iphone-14-pro-max:w-[107px] iphone-14-pro-max:h-[24px]
+                 " src={logo} alt="logo"/>
             </div>
 
-                <div className="max-w-md  w-[335px] top-[155px] left-[380px] gap-[40px]" style={{position: "absolute"}}>
+                <div className=" iphone-14-pro-max:left-[24px]
+                 lg:w-[335px] iphone-14-pro-max:top-[144px]
+                lg:top-[100px] lg:left-[380px]
+              absolute gap-[40px]"
+                     >
                         <p className="text-2xl font-aeonik mb-6 text-custom-black lg:w-[335px] "
                         style={{fontWeight:500,fontSize:40}}
                         >Create Account</p>
@@ -73,7 +78,10 @@ const CreateAnAccount: React.FC = () => {
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
                                     required
-                                    className="w-72 h-10  placeholder-custom-placeholder-color pl-3 drop-shadow-md rounded-md text-gray-800   outline-none"
+                                    className="w-72 h-10  placeholder-custom-placeholder-color
+                                    iphone-14-pro-max:w-[382px]
+                                    iphone-14-pro-max:h-[56px] pl-3 drop-shadow-md
+                                    font-plus-jakarta rounded-md text-gray-800   outline-none"
                                     style={{border:"1px solid #E4E4E7"}}
                                 />
                             </div>
@@ -86,7 +94,10 @@ const CreateAnAccount: React.FC = () => {
                                     value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
                                     required
-                                    className="w-72 h-10  pl-3 shadow-md text-custom-placeholder-color placeholder-custom-placeholder-color outline-none"
+                                    className="w-72 h-10  pl-3 shadow-md
+                                    iphone-14-pro-max:w-[382px] text-custom-placeholder-color
+                                    iphone-14-pro-max:h-[56px]
+                                     font-plus-jakarta placeholder-custom-placeholder-color outline-none"
                                     style={{border:"1px solid #E4E4E7"}}/>
 
                             </div>
@@ -99,7 +110,11 @@ const CreateAnAccount: React.FC = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    className="w-72 h-10  pl-3 rounded-md text-custom-placeholder-color shadow-md placeholder-custom-placeholder-color  outline-none"
+                                    className="w-72 h-10  pl-3 rounded-md
+                                    iphone-14-pro-max:w-[382px]
+                                    text-custom-placeholder-color
+                                     font-plus-jakarta shadow-md placeholder-custom-placeholder-color
+                                       iphone-14-pro-max:h-[56px]  outline-none"
                                     style={{border:"1px solid #E4E4E7"}}
                                 />
                             </div>
@@ -112,15 +127,23 @@ const CreateAnAccount: React.FC = () => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
-                                    className="w-72 h-10 shadow-md pl-3  rounded-md text-gray-800 placeholder-custom-placeholder-color pl-3 outline-none"
+                                    className="w-72 h-10 shadow-md pl-3
+                                    iphone-14-pro-max:w-[382px]
+                                    rounded-md text-gray-800 placeholder-custom-placeholder-color
+                                     iphone-14-pro-max:h-[56px]  font-plus-jakarta outline-none
+                                     mb-7"
 
                                     style={{border:"1px solid #E4E4E7"}}
                                 />
                             </div>
                             <button
-                                className="w-72 h-10  outline-none border-none bg-custom-purple text-white  font-bold rounded mt-40"
+                                className="w-72 h-10  outline-none border-none
+                                iphone-14-pro-max:w-[382px]
+                                iphone-14-pro-max:h-[56px]
+                                bg-custom-purple text-white
+                                 font-bold rounded "
                                 type="submit"
-                                style={{backgroundColor: "#7000F6"}}
+                                style={{backgroundColor: "#7000F6",fontWeight:500}}
                             >
                                 Create Account
                             </button>
@@ -128,7 +151,7 @@ const CreateAnAccount: React.FC = () => {
                     </div>
 
 
-            <div className="lg:w-[384px] bg-[#F0EEFF] hidden lg:block"></div>
+            <div className="lg:w-[384px] bg-[#F0EEFF]   hidden lg:block"></div>
         </div>
     );
 };

@@ -8,6 +8,7 @@ import addTransactionImage from "../../assets/add.png"
 import editIcon from "../../assets/edit-03.png"
 import deleteIcon from "../../assets/trash-01.png"
 import {useGetTransactionsQuery} from "../../redux/slice";
+import sidebarBurger from "../SidebarBurger";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faBox,
@@ -25,7 +26,9 @@ import chevronLeft from "../../assets/chevron-left.png"
 import vector from "../../assets/Vector.png"
 import listFilter from "../../assets/list-filter.png"
 import right from "../../assets/right.png"
-
+import SidebarBurger from "../SidebarBurger";
+import arrowUp from "../../assets/arrowUp.png"
+import arrowdown from "../../assets/arrowDownpng.png"
 interface transactionDetails {
     direction : string,
     email: string,
@@ -47,6 +50,36 @@ const Dashboard: React.FC = () => {
     console.log("The list of transactionsList: ", transactionList);
 
     const [listOfTransaction, setListOfTransaction] = useState<transactionDetails[]>([]);
+    const formatDate = (dateString: any) => {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getFullYear();
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const period = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12; // Convert 24h to 12h format
+
+        return `${day} ${month} ${year} ${formattedHours}:${minutes.toString().padStart(2, '0')} ${period}`;
+    };
+    const getImageForDirection = (direction:string) => {
+        switch (direction) {
+            case 'debit':
+                return arrowUp;
+            case 'credit':
+                return arrowdown;
+
+        }
+    };
+    const getBackgroundColor = (direction:string) => {
+        switch (direction) {
+            case 'debit':
+                return 'bg-[#FFF5F5]';
+            case 'credit':
+                return 'bg-[#E8FFF6]';
+
+        }
+    };
 
     useEffect(() => {
             if (data) {
@@ -59,12 +92,12 @@ const Dashboard: React.FC = () => {
 
     const transactions = listOfTransaction.slice(0, 15)
     console.log("The details of transactions: ", transactions);
-    const reference = transactions.map(reference => reference.reference);
+    const reference = transactions.map(reference => reference.reference.slice(0,5)+"'...");
     const amounts = transactions.map(amount => amount._value);
-    const transaction_date = transactions.map(date => date.created_at);
-    const updated_date = transactions.map(update => update.updated_at);
+    const transaction_date = transactions.map(date => formatDate(date.created_at));
+    const updated_date = transactions.map(update => formatDate(update.updated_at));
     const naira = transactions.map(ngn => ngn.currency);
-
+    const direction = transactions.map(transaction => transaction.direction)
 
 
 
@@ -72,7 +105,7 @@ const Dashboard: React.FC = () => {
     const [deleteModalOpen, setDeleteModalOpen] = useState<boolean>(false);
     const [addTransactionModal, setAddTransactionModal] = useState<boolean>(false);
     const [isUpdateModalOpen, setUpdateModalOpen] = useState<boolean>(false);
-
+    const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
     const emailValue = localStorage.getItem("email");
     const lastName = localStorage.getItem("lastName");
@@ -88,10 +121,7 @@ const Dashboard: React.FC = () => {
 
 
 
-    const formatDate = (isoString: string): string => {
-        const date = new Date(isoString);
-        return date.toISOString().replace('T', ' ').slice(0, 19);
-    };
+
     const handleOpenUpdateModal = () => {
         setUpdateModalOpen(true);
     };
@@ -99,6 +129,7 @@ const Dashboard: React.FC = () => {
     const handleCloseUpdateModal = () => {
         setUpdateModalOpen(false);
     };
+    const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
 
     const handleDeleteModalOpen = () => {
@@ -116,11 +147,22 @@ const Dashboard: React.FC = () => {
     const handleNewTransactionModalOpen = () => setAddTransactionModal(true);
     const handleCloseTransactionModalClose = () => setAddTransactionModal(false);
 
+    // @ts-ignore
     return (
         <>
-            <NavBar/>
+            <div>
+                <div className={"iphone-14-pro-max:hidden"}>
+                    <NavBar/>
+                </div>
+
+                <div className={"lg:hidden flex flex-row w-[430px] justify-between h-[100px] mt-[36px] "}>
+                    <SidebarBurger isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
+                        <p className={"font-aeonik h-25px"} style={{fontWeight:"400px", fontSize:"20px"}}>Transaction</p>
+                    <FontAwesomeIcon className={"mr-[10px]"} icon={faUserFriends}/>
+                </div>
+            </div>
             <div className={styles.dashboard}>
-                <div className={styles.sideBar}>
+                <div className="flex flex-col w-[260px] iphone-14-pro-max:hidden h-[790px] bg-[#7000F6]">
                     <div className={styles.userProfile}>
                         <div className={styles.nameAbrv}>
                             {lastNameAbbrv + "" + firstNameAbbrv}
@@ -132,263 +174,198 @@ const Dashboard: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className={styles.sideBarItems}>
+                    <div className="lg:flex pl-7 mt-7 space-y-7 font-aeonik text-base">
 
-                        <div className={styles.sideIcons}>
-                            <FontAwesomeIcon icon={faTachometerAlt} />
-                            <p>Overview</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div>
-                                <FontAwesomeIcon icon={faUserFriends} />
-                            </div>
-
-                            <p>Users</p>
-                        </div>
-                        <div  className={styles.sideIcons}>
-                            <div>
-                                <FontAwesomeIcon icon={faClipboardList} />
-                            </div>
-                            <p>Transactions</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div>
-                                <FontAwesomeIcon icon={faExchangeAlt} />
-                            </div>
-
-                            <p>Transfers</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div>  <FontAwesomeIcon icon={faBox} /></div>
-                            <p>Deposits</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div>
-                                < FontAwesomeIcon icon={faPiggyBank}/>
-                            </div>
-
-                            <p>Savings</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div>
-                                <FontAwesomeIcon icon={faReceipt} />
-                            </div>
-                            <p>Bill Payment</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div>
-                                <FontAwesomeIcon icon={faChartBar} />
-                            </div>
-                            <p>Report</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div><FontAwesomeIcon icon={faCheckCircle} /></div>
-                            <p>Compliance</p>
-                        </div>
-                        <div className={styles.sideIcons}>
-                            <div><FontAwesomeIcon icon={faCog} /></div>
-                            <p>Settings</p>
+                        <div>
+                            {[
+                                {icon: faTachometerAlt, label: 'Overview'},
+                                {icon: faUserFriends, label: 'Users'},
+                                {icon: faClipboardList, label: 'Transactions'},
+                                {icon: faExchangeAlt, label: 'Transfers'},
+                                {icon: faBox, label: 'Deposits'},
+                                {icon: faPiggyBank, label: 'Savings'},
+                                {icon: faReceipt, label: 'Bill Payment'},
+                                {icon: faChartBar, label: 'Report'},
+                                {icon: faCheckCircle, label: 'Compliance'},
+                                {icon: faCog, label: 'Settings'}
+                            ].map((item, index) => (
+                                <div key={index}
+                                     className="flex items-center py-2 text-white hover:bg-purple-900 rounded-md px-2">
+                                    <FontAwesomeIcon icon={item.icon} className="mr-3 text-[rgba(255, 255, 255, 0.72] h-[16px] w-16px]"/>
+                                    <p className={"font-aeonik font-[500] text-[rgba(255, 255, 255, 0.72] text-[16px]"}>{item.label}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <div className={styles.transactionContainer}>
-                        <div className={styles.transaction}>
-                            <h3 className={styles.transactionHeading}>Transactions</h3>
-                            <p>View all your transaction in the list of product</p>
+                <div className={"lg:ml-[40px] mt-[10px] iphone-14-pro-max:ml-[5px]"}>
+                    <div className={"flex flex-row iphone-14-pro-max:gap-[100px] lg:justify-between lg:w-815px"}>
+                        <div className={"w-317px h-53px"}>
+                            <h3 className={"font-aeonik font-medium iphone-14-pro-max:text-[20px] lg:text-[32px]"}>Transactions</h3>
+                            <p className={"font-aeonik font-medium text-[14px]"}>View all your transaction in the list
+                                of product</p>
                         </div>
 
-                        <div className={styles.addBtn}>
-                            <img onClick={handleNewTransactionModalOpen} src={addTransactionImage}
+                        <div className={"mt-[10px] iphone-14-pro-max:mr-[10px]"}>
+                            <img className={"iphone-14-pro-max:h-[56px] iphone-14-pro-max:w-[56px] "}
+                                 onClick={handleNewTransactionModalOpen} src={addTransactionImage}
                                  alt={"add transaction"} width={35}/>
                         </div>
 
-
                     </div>
 
-                    <div className={styles.box}>
-                        <div className={styles.ashCont}>
-                            <div className={styles.heading}>
-                                <h4>
+                    <div className={"flex flex-row gap-[35px] mt-[10px] lg:w-[815px] " +
+                        "lg:[120px] iphone-14-pro-max:w-[430px] iphone-14-pro-max:h-[170px]" +
+                        " mt-[20px] "}>
+                        <div className={"bg-[#F9F9F9] w-[258.33px] lg-h-[120px] p-[16px] "}>
+                            <div>
+                                <h4 className={"font-aeonik font-[500px] text-[12px] text-[#223E3B]"}>
                                     Total Balance
                                 </h4>
                             </div>
 
-                            <div className={styles.money}>
-                                <p className={styles.moneyP}>N87K <span>+1 today</span></p>
-                                <p style={{color: "#7000F6"}} className={styles.viewDetails}>View details</p>
+                            <div>
+                                <p className={"font-aeonik font-[500px] text-[32px]"}>N87K
+                                    <span className={"font-aeonik font-[400px] text-[13px]"}>+1 today</span></p>
+                                <p className={"font-aeonik font-[400px] text-[13px] text-[#7000F6]"}>View details</p>
 
                             </div>
                         </div>
 
-                        <div className={styles.ashCont}>
-                            <div className={styles.heading}>
-                                <h4>
+                        <div className={"bg-[#F9F9F9] lg:w-[258.33px] lg-h-[120px] p-[16px] "}>
+                            <div>
+                                <h4 className={"font-aeonik font-[500px] text-[12px] text-[#0C296A]"}>
                                     Total Credit
                                 </h4>
                             </div>
 
-                            <div className={styles.money}>
-                                <p className={styles.moneyP}>234,120</p>
-                                <p style={{color: "#008000"}} className={styles.viewDetails}>View details</p>
+                            <div>
+                                <p className={"font-aeonik font-[500px] text-[32px]"}>234,120</p>
+                                <p className={"font-aeonik font-[400px] text-[13px] text-[#008000]"}>View details</p>
 
                             </div>
                         </div>
 
 
-                        <div className={styles.ashCont}>
+                        <div
+                            className={"bg-[#F9F9F9] lg:w-[258.33px] lg-h-[120px] lg:p-[16px] iphone-14-pro-max:hidden"}>
 
-                            <div className={styles.heading}>
-                                <h4>
+                            <div>
+                                <h4 className={"font-aeonik font-[500px] text-[12px] text-[#223E3B]"}>
                                     Total Debit
                                 </h4>
                             </div>
 
-                            <div className={styles.money}>
-                                <p className={styles.moneyP}>N923K <span>+5% today</span></p>
-                                <p style={{color: "#FF0000"}} className={styles.viewDetails}>View details</p>
+                            <div>
+                                <p className={"font-aeonik font-[500px] text-[32px]"}>N923K
+                                    <span className={"font-aeonik font-[400px] text-[13px]"}>+5% today</span></p>
+                                <p className={"font-aeonik font-[400px] text-[13px] text-[#FF0000]"}>View details</p>
 
                             </div>
                         </div>
                     </div>
-                    <div className={styles.transactions}>
+
+                    <div
+                        className={"flex flex-row lg:w-[815px] justify-between mt-[35px]  iphone-14-pro-max:w-[430px] h-[72px]"}>
                         <form>
                             <input
                                 type="text"
                                 placeholder={"Search Transactions"}
-
+                                className="bg-white w-[256px] iphone-14-pro-max:w-[325px] text-[#71717A] h-[40px] border pl-[10px] border-[#E4E4E7]"
                             />
                         </form>
-                        <div className={styles.innerTransactions}>
-                            <div className={styles.filter}>
-                                <div><img src={listFilter} alt={"filter"}/></div>
-                                <select style={{border:"none",paddingRight:"100px",outline:"none"}} id="filter" name="filter">
-                                    <option style={{marginLeft:"30px"}} value="all">Filters</option>
-                                </select>
+                        <div className={"flex flex-row gap-[8px] iphone-14-pro-max:hidden w-[254px] h-[40px]"}>
+                            <div className={"flex w-[102px] flex-row gap-[16px] border border-[#E4E4E7] p-[8px]"}>
+                                <div className={"mr-[10px]"}><img className={"w-[16px] h-[16px] absolute "}
+                                                                  src={listFilter} alt={"filter"}/></div>
+                                <div className={"font-aeonik font-[500px] text-[14px] text-[#71717A]"}>
+                                    Filters
+                                </div>
+                                <div className={"mt-[10px]"}>
+                                    <img src={vector} alt={"vector"} className={"w-[8px] h-[4px] absolute"}/>
+                                </div>
                             </div>
 
-                            <div className={styles.numbers}>
-                                <div><img src={chevronLeft} alt={"left"}/></div>
-                                <p>1- 10 of 240</p>
-                                <div><img style={{width:"6px",marginRight:"2px"}} src={right} alt={"right"}/></div>
+                            <div className={"flex w-[144px] flex-row gap-[10px] border border-[#E4E4E7] p-[8px]"}>
+                                <div className={"pt-[4px]"}><img src={chevronLeft} alt={"left"}
+                                                                 className={"w-[16px] h-[15px]"}/></div>
+                                <p className={"font-plus-jakarta font-[500px] text-[14px]  "}>1- 10
+                                    <span className={"text-[#71717A]"}>of 240</span></p>
+                                <div className={"pt-[7px]"}><img className={"w-[6px] h-[8px] "} src={right}
+                                                                 alt={"right"}/></div>
                             </div>
+                        </div>
+                        <div
+                            className="border border-[#E4E4E7] lg:hidden rounded-[2px] w-[44px] mr-[10px] h-[40px] flex items-center justify-center">
+                            <img className="w-[22px] h-[22px] " src={listFilter} alt="filter"/>
                         </div>
                     </div>
-                    <div className={styles.transactionTable}>
-                        <div>
-                            <h3>Reference</h3>
-                        </div>
+                    <div className={"lg:w-[815px]"}>
+                            <div className="overflow-x-auto ">
+                                <table className=" divide-y divide-gray-200 border border-gray-200">
+                                    <thead className="bg-gray-50">
+                                    <tr>
+                                        <th className="px-6 py-3  text-left text-[14px] lg:w-158px] font-aeonik text-[#111827]-500 tracking-wider">Reference</th>
+                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-widerr">Amount</th>
+                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Transaction
+                                            Date
+                                        </th>
+                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Updated
+                                            Last
+                                        </th>
+                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Status</th>
+                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody className="bg-white divide-y divide-x divide-gray-200">
+                                    {reference.map((_, index) => (
+                                        <tr key={index}>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-aeonik font-medium text-gray-900">
+                                                <div className="flex items-center">
+                                                    <div
+                                                        className={`${getBackgroundColor(direction[index])} flex items-center mr-[3px] w-[28px] h-[28px] rounded-2xl`}>
+                                                        <img
+                                                            src={getImageForDirection(direction[index])}
+                                                            alt={"direction"}
+                                                            className="mr-2 w-[12px] h-[12px] ml-[5px]"
+                                                        />
+                                                    </div>
 
-                        <div>
-                            <h3>Amount</h3>
-                        </div>
+                                                    <span className=" whitespace-nowrap text-[14px] font-aeonik font-[400px] text-{#4B5563}">{reference[index]}</span>
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-[14px] font-aeonik font-[400px] text-{#4B5563}">
+                                                {naira[index]} {amounts[index]}
+                                            </td>
 
-                        <div>
-                            <h3>Transaction Date</h3>
-                        </div>
+                                            <td className="px-6 py-4 whitespace-nowrap lg:w-[i68px] text-[14px] font-aeonik font-[400px] text-{#4B5563}">{transaction_date[index]}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-{#4B5563} text-[14px] font-aeonik font-[400px] lg:w-[i68px] text-gray-900">{updated_date[index]}</td>
+                                            <td className=" whitespace-nowrap   font-medium ">
+                                                <p className={"bg-[#E8FFF6] pt-[8px] pr-[12px] pb-[8px] pl-[12px] font-[400px] rounded-[72px] flex items-center " +
+                                                    "lg:w-[72px] mr-[10px] lg:h-[28px] font-aeonik text-[#1ACE37]  text-[12px] "}>Success</p></td>
+                                            <td className=" px-6 py-4whitespace-nowrap text-sm font-aeonik font-[400px] bg-font-medium text-{#4B5563}">
 
-                        <div>
-                            <h3>Updated Last</h3>
-                        </div>
-
-                        <div>
-                            <h3>Status</h3>
-                        </div>
-
-                        <div>
-                            <h3>Action</h3>
-                        </div>
-                    </div>
-
-                    <div className={styles.transactionValues}>
-
-                        <ul>
-                            {reference.map((reference, index) => (
-                                <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
-                                    <span>{reference}</span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <ul>
-                            {naira.map((currency, index) => (
-                                <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
-                                    <span>{currency}</span>
-                                </li>
-                            ))}</ul>
-
-                        <ul>
-                            <div className={styles.amountList}>
-
-                                {amounts.map((amount, index) => (
-                                    <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
-                                        <span>{amount}</span>
-                                    </li>
-                                ))}
+                                                <div className="flex space-x-2">
+                                                    <img
+                                                        onClick={handleOpenUpdateModal}
+                                                        className="w-[14px] h-[14px] cursor-pointer"
+                                                        src={editIcon}
+                                                        alt="edit icon"
+                                                    />
+                                                    <img
+                                                        onClick={handleDeleteModalOpen}
+                                                        className="w-[14px] h-[14px] cursor-pointer"
+                                                        src={deleteIcon}
+                                                        alt="delete icon"
+                                                    />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    </tbody>
+                                </table>
                             </div>
-                        </ul>
-                        <ul>
-                            <div className={styles.transactionDateList}>
-
-                                {transaction_date.map((transactionDate, index) => (
-                                    <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
-                                        <span>{transactionDate}</span>
-                                    </li>
-                                ))}
-                            </div>
-                        </ul>
-                        <ul>
-                            <div className={styles.updatedTransactionDateList}>
-
-                                {updated_date.map((updateDate, index) => (
-                                    <li key={index} style={{marginTop: "5px",fontSize:"15px"}}>
-                                        <span>{updateDate}</span>
-                                    </li>
-                                ))}
-                            </div>
-                        </ul>
-
-                        <ul>
-                            <div className={styles.updatedTransactionDateList}>
-
-                                {updated_date.map((updateDate, index) => (
-
-
-                                    <li key={index} style={{
-                                        marginTop: "5px",
-                                        borderRadius: "80px",
-                                        borderBottom: "20px",
-                                        fontSize: "15px",
-
-                                    }}>
-
-
-                                        <span style={{color: "#1ACE37", backgroundColor: "#E8FFF6"}}>Success </span>
-                                    </li>
-                                ))}
-                            </div>
-                        </ul>
-
-
-
-                        <ul>
-                            <div className={styles.updatedTransactionDateList}>
-
-                                {updated_date.map((updateDate, index) => (
-                                    <li key={index} >
-                                        <div className={styles.actions} style={{marginTop: "5px"}}>
-                                            <img onClick={handleOpenUpdateModal} className={styles.action}
-                                                 src={editIcon} alt={"edit icon "}/>
-                                            <img onClick={handleDeleteModalOpen} className={styles.action}
-                                                 src={deleteIcon} alt={"delete icon"}/>
-
-                                        </div>
-                                    </li>
-                                ))}
-                            </div>
-                        </ul>
-
                     </div>
                 </div>
                 <DeleteTransaction isOpen={deleteModalOpen} onClose={handleDeleteModalClose}
@@ -396,14 +373,9 @@ const Dashboard: React.FC = () => {
                 <AddNewTransaction isOpen={addTransactionModal} onClose={handleCloseTransactionModalClose}/>
                 <UpdateTransaction
                     isOpen={isUpdateModalOpen}
-                    onClose={handleCloseUpdateModal}
-
-                />
+                    onClose={handleCloseUpdateModal}/>
             </div>
-
-
-        </>
-    );
+        </>);
 };
 
 export default Dashboard;

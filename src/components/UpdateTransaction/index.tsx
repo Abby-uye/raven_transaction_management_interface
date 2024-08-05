@@ -26,31 +26,31 @@ const UpdateTransaction:React.FC<AddNewTransactionProps> = ({ isOpen, onClose })
                 className={`fixed right-0 top-0 w-362px h-full bg-white p-6 border border-gray-300 transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <button
                     onClick={onClose}
-                    className="rounded-full bg-custom-grayed w-6 h-6 flex items-center outline-none border-none justify-center"
+                    className="rounded-full bg-custom-grayed w-[32px] h-[32px] flex items-center outline-none border-none justify-center"
                 >
                     <img
-                        className="w-4 h-4"
+                        className="w-[32px] h-[32px] "
                         src={cancel}
                         alt="cancelButton"
                     />
                 </button>
-                <h2 className="text-4xlg font-extrabold mb-4 font-aeonik"
+                <h2 className="text-[24px] text[#0A090B] font-[500px] mt-[15px] font-aeonik"
                 >Update Transaction</h2>
-                <p className={"text-custom-gray mb-4 text-xs font-aeonik co"}>Add a new transaction to the table</p>
+                <p className={"text-[#7F7D83] font-[400px] mb-4 text-[14px] font-aeonik "}>Add a new transaction to the table</p>
 
-                <div className="flex flex-col space-y-4">
-                    <label className="block text-gray-700 mb-2">Transaction Description <span
+                <div className="flex flex-col ">
+                    <label className="font-plus-jakarta font-[500px] mt-[15px] text-[16px] text-[#09090B] ">Transaction Description <span
                         className="text-red-500">*</span></label>
-                    <select className="w-72 h-10 pl-4 pr-18 border border-gray-300 outline-none rounded-md ">
+                    <select className="w-72 h-10 font-plus-jakarta font-[500px] text-[16px] pl-4 pr-18 border text-[#71717A] border-gray-300 outline-none rounded-md ">
                         <option>Debit</option>
                         <option>Credit</option>
                     </select>
-                    <label className="block text-gray-700 mb-2">Status<span
+                    <label className="font-plus-jakarta font-[500px] mt-[15px] text-[16px] text-[#09090B] ">Status<span
                         className="text-red-500">*</span></label>
                     <select
-                        className="w-72 h-10 pl-4 pr-8 border border-gray-300 outline-none rounded-md ">
-                        <option>Success</option>
+                        className="w-72 h-10 pl-4 pr-8  font-plus-jakarta font-[500px] text-[16px] border border-gray-300 text-[#71717A] outline-none rounded-md ">
                         <option>Pending</option>
+                        <option>Success</option>
                         <option>Failed</option>
                     </select>
 
@@ -63,8 +63,8 @@ const UpdateTransaction:React.FC<AddNewTransactionProps> = ({ isOpen, onClose })
                     handleSubmit();
                 }}>
 
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-2">Amount <span
+                    <div className="mb-4 flex flex-col">
+                        <label className="font-plus-jakarta font-[500px] text-[16px] text-[#09090B] mt-[15px] ">Amount <span
                             className="text-red-500">*</span></label>
                         <input
                             type="text"
@@ -72,15 +72,15 @@ const UpdateTransaction:React.FC<AddNewTransactionProps> = ({ isOpen, onClose })
                             value={amount}
                             onChange={(e) => setAmount(e.target.value)}
                             required
-                            className="w-72 h-10 border border-custom-gray rounded-md text-gray-800   outline-none"
+                            className="w-72 h-10 font-plus-jakarta  font-[500px] text-[16px] border  rounded-md text-[#71717A]  pl-[10px] outline-none"
                         />
                     </div>
                     <button
-                        className="w-72 h-10  bg-custom-purple text-white outline-none border-none  font-bold rounded mt-40"
+                        className="w-72 h-10 outline-none border-none bg-custom-purple text-white  font-bold rounded mt-[85px]"
                         type="submit"
                         style={{backgroundColor:"#7000F6"}}
                     >
-                       Save Changes
+                        Update Transaction
                     </button>
                 </form>
             </div>

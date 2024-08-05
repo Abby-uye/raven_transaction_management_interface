@@ -25,7 +25,9 @@
 }
 
 .deleteButton {
-    margin-top: 20px;
+ display: flex;
+    flex-direction: row;
+    margin-top: 10px;
 }
 
 .confirmDeleteButton {
@@ -36,17 +38,22 @@
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    width: 184px;
 }
 
 .cancelDeleteButton {
-    background: gray;
-    color: #fff;
+    background:#E3E3E3;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    width: 184px;
+    color: #09090B;
 }
 .times{
     width: 13px;
     height: 13px;
+    margin-left: 10px;
+
+
 }
