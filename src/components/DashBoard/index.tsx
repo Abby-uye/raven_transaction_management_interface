@@ -204,7 +204,7 @@ const Dashboard: React.FC = () => {
                     <div className={"flex flex-row iphone-14-pro-max:gap-[100px] lg:justify-between lg:w-815px"}>
                         <div className={"w-317px h-53px"}>
                             <h3 className={"font-aeonik font-medium iphone-14-pro-max:text-[20px] iphone-14-pro-max:ml-[10px] lg:text-[32px]"}>Transactions</h3>
-                            <p className={"font-aeonik font-medium text-[14px] iphone-14-pro-max:ml-[10px]"}>View all your transaction in the list
+                            <p className={"font-aeonik font-medium text-[14px] iphone-14-pro-max:ml-[10px]"}>View all your transactions in the list
                                 of product</p>
                         </div>
 
