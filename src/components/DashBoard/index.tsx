@@ -29,6 +29,7 @@ import right from "../../assets/right.png"
 import SidebarBurger from "../SidebarBurger";
 import arrowUp from "../../assets/arrowUp.png"
 import arrowdown from "../../assets/arrowDownpng.png"
+import avatar from "../../assets/Avatar.png"
 interface transactionDetails {
     direction : string,
     email: string,
@@ -158,7 +159,7 @@ const Dashboard: React.FC = () => {
                 <div className={"lg:hidden flex flex-row w-[430px] justify-between h-[100px] mt-[36px] "}>
                     <SidebarBurger isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
                         <p className={"font-aeonik h-25px"} style={{fontWeight:"400px", fontSize:"20px"}}>Transaction</p>
-                    <FontAwesomeIcon className={"mr-[10px]"} icon={faUserFriends}/>
+                    <img className={"w-[40px] h-[48px]"} src={avatar} alt={"profile image"}/>
                 </div>
             </div>
             <div className={styles.dashboard}>
@@ -202,8 +203,8 @@ const Dashboard: React.FC = () => {
                 <div className={"lg:ml-[40px] mt-[10px] iphone-14-pro-max:ml-[5px]"}>
                     <div className={"flex flex-row iphone-14-pro-max:gap-[100px] lg:justify-between lg:w-815px"}>
                         <div className={"w-317px h-53px"}>
-                            <h3 className={"font-aeonik font-medium iphone-14-pro-max:text-[20px] lg:text-[32px]"}>Transactions</h3>
-                            <p className={"font-aeonik font-medium text-[14px]"}>View all your transaction in the list
+                            <h3 className={"font-aeonik font-medium iphone-14-pro-max:text-[20px] iphone-14-pro-max:ml-[10px] lg:text-[32px]"}>Transactions</h3>
+                            <p className={"font-aeonik font-medium text-[14px] iphone-14-pro-max:ml-[10px]"}>View all your transaction in the list
                                 of product</p>
                         </div>
 
@@ -301,72 +302,104 @@ const Dashboard: React.FC = () => {
                             <img className="w-[22px] h-[22px] " src={listFilter} alt="filter"/>
                         </div>
                     </div>
-                    <div className={"lg:w-[815px]"}>
-                            <div className="overflow-x-auto ">
-                                <table className=" divide-y divide-gray-200 border border-gray-200">
-                                    <thead className="bg-gray-50">
-                                    <tr>
-                                        <th className="px-6 py-3  text-left text-[14px] lg:w-158px] font-aeonik text-[#111827]-500 tracking-wider">Reference</th>
-                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-widerr">Amount</th>
-                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Transaction
-                                            Date
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Updated
-                                            Last
-                                        </th>
-                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Status</th>
-                                        <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Action</th>
+                    <div className={"lg:w-[815px] iphone-14-pro-max:hidden"}>
+                        <div className="overflow-x-auto ">
+                            <table className=" divide-y divide-gray-200 border border-gray-200">
+                                <thead className="bg-gray-50">
+                                <tr>
+                                    <th className="px-6 py-3  text-left text-[14px] lg:w-158px] font-aeonik text-[#111827]-500 tracking-wider">Reference</th>
+                                    <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-widerr">Amount</th>
+                                    <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Transaction
+                                        Date
+                                    </th>
+                                    <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Updated
+                                        Last
+                                    </th>
+                                    <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Status</th>
+                                    <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody className="bg-white divide-y divide-x divide-gray-200">
+                                {reference.map((_, index) => (
+                                    <tr key={index}>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-aeonik font-medium text-gray-900">
+                                            <div className="flex items-center">
+                                                <div
+                                                    className={`${getBackgroundColor(direction[index])} flex items-center mr-[3px] w-[28px] h-[28px] rounded-2xl`}>
+                                                    <img
+                                                        src={getImageForDirection(direction[index])}
+                                                        alt={"direction"}
+                                                        className="mr-2 w-[12px] h-[12px] ml-[5px]"
+                                                    />
+                                                </div>
+
+                                                <span
+                                                    className=" whitespace-nowrap text-[14px] font-aeonik font-[400px] text-{#4B5563}">{reference[index]}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-[14px] font-aeonik font-[400px] text-{#4B5563}">
+                                            {naira[index]} {amounts[index]}
+                                        </td>
+
+                                        <td className="px-6 py-4 whitespace-nowrap lg:w-[i68px] text-[14px] font-aeonik font-[400px] text-{#4B5563}">{transaction_date[index]}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-{#4B5563} text-[14px] font-aeonik font-[400px] lg:w-[i68px] text-gray-900">{updated_date[index]}</td>
+                                        <td className=" whitespace-nowrap    ">
+                                            <p className={"bg-[#E8FFF6] pt-[8px] pr-[12px] pb-[8px] pl-[12px] font-[400px] rounded-[72px] flex items-center " +
+                                                "lg:w-[72px] mr-[10px] lg:h-[28px] font-aeonik text-[#1ACE37]  text-[12px] "}>Success</p>
+                                        </td>
+                                        <td className=" px-6 py-4whitespace-nowrap text-sm font-aeonik font-[400px] bg-font-medium text-{#4B5563}">
+
+                                            <div className="flex space-x-2">
+                                                <img
+                                                    onClick={handleOpenUpdateModal}
+                                                    className="w-[14px] h-[14px] cursor-pointer"
+                                                    src={editIcon}
+                                                    alt="edit icon"
+                                                />
+                                                <img
+                                                    onClick={handleDeleteModalOpen}
+                                                    className="w-[14px] h-[14px] cursor-pointer"
+                                                    src={deleteIcon}
+                                                    alt="delete icon"
+                                                />
+                                            </div>
+                                        </td>
                                     </tr>
-                                    </thead>
-                                    <tbody className="bg-white divide-y divide-x divide-gray-200">
-                                    {reference.map((_, index) => (
-                                        <tr key={index}>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-aeonik font-medium text-gray-900">
-                                                <div className="flex items-center">
-                                                    <div
-                                                        className={`${getBackgroundColor(direction[index])} flex items-center mr-[3px] w-[28px] h-[28px] rounded-2xl`}>
-                                                        <img
-                                                            src={getImageForDirection(direction[index])}
-                                                            alt={"direction"}
-                                                            className="mr-2 w-[12px] h-[12px] ml-[5px]"
-                                                        />
-                                                    </div>
-
-                                                    <span className=" whitespace-nowrap text-[14px] font-aeonik font-[400px] text-{#4B5563}">{reference[index]}</span>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-[14px] font-aeonik font-[400px] text-{#4B5563}">
-                                                {naira[index]} {amounts[index]}
-                                            </td>
-
-                                            <td className="px-6 py-4 whitespace-nowrap lg:w-[i68px] text-[14px] font-aeonik font-[400px] text-{#4B5563}">{transaction_date[index]}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-{#4B5563} text-[14px] font-aeonik font-[400px] lg:w-[i68px] text-gray-900">{updated_date[index]}</td>
-                                            <td className=" whitespace-nowrap   font-medium ">
-                                                <p className={"bg-[#E8FFF6] pt-[8px] pr-[12px] pb-[8px] pl-[12px] font-[400px] rounded-[72px] flex items-center " +
-                                                    "lg:w-[72px] mr-[10px] lg:h-[28px] font-aeonik text-[#1ACE37]  text-[12px] "}>Success</p></td>
-                                            <td className=" px-6 py-4whitespace-nowrap text-sm font-aeonik font-[400px] bg-font-medium text-{#4B5563}">
-
-                                                <div className="flex space-x-2">
-                                                    <img
-                                                        onClick={handleOpenUpdateModal}
-                                                        className="w-[14px] h-[14px] cursor-pointer"
-                                                        src={editIcon}
-                                                        alt="edit icon"
-                                                    />
-                                                    <img
-                                                        onClick={handleDeleteModalOpen}
-                                                        className="w-[14px] h-[14px] cursor-pointer"
-                                                        src={deleteIcon}
-                                                        alt="delete icon"
-                                                    />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                                ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                    <div className="lg:hidden flex flex-col gap-4 mt-5 p-4">
+                        {transactions.map((transaction, index) => (
+                            <div key={index} className="flex flex-row justify-between border p-4 rounded ">
+                                <div className="flex flex-col  mb-2">
+                                    <div className={"flex flex-row"}>
+                                    <div
+                                        className={`${getBackgroundColor(direction[index])} flex items-center justify-center mr-3 w-7 h-7 rounded-full`}>
+                                        <img src={getImageForDirection(direction[index])} alt="direction"
+                                             className="w-5 h-5"/>
+                                    </div>
+                                    <span
+                                        className="text-[#020202] font-aeonik text-[12px] font-medium">{naira[index]} {amounts[index]}</span>
+                                    </div>
+                                    <div className="font-aeonik text-[#676767] text-[12px]">
+                                        <span>{transaction_date[index]}</span>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-2 font-aeonik text-sm text-gray-600">
+
+                                <div className="flex justify-between">
+                                     <span className={`text-[12px] bg-[#E8FFF6] w-[68px] h-[24px] pl-[12px] rounded-[72px] font-aeonik text-[#1ACE37]`}>Success</span>
+                                    </div>
+                                    <div className="font-aeonik text-[#676767] text-[12px]">
+                                        <span>{updated_date[index]}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
                 <DeleteTransaction isOpen={deleteModalOpen} onClose={handleDeleteModalClose}
                                    onConfirm={handleConfirmDelete}/>

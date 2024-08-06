@@ -5,6 +5,7 @@ import downArrowIcon from "../../../assets/Icon.png"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import styles from "./index.module.css"
 import {faUser} from "@fortawesome/free-solid-svg-icons";
+import avatar from "../../../assets/Avatar.png";
 
 
 
@@ -23,7 +24,7 @@ const NavBar:React.FC = ()=>{
                     <img width={20} src={  questionIcon} alt={"questionIcon"}/>
                 </div>
                 <div className={styles.dummyProfilePicture}>
-                    <FontAwesomeIcon icon={faUser} style={{ fontSize: '20px', color: '#556' }} />
+                    <img className={"w-[32px] h-[32px]"} src={avatar} alt={"profile image"}/>
                 </div>
 
                 <div className={styles.userName}>{firstName}</div>

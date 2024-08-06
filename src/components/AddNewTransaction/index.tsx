@@ -23,7 +23,7 @@ const AddNewTransaction:React.FC<AddNewTransactionProps> = ({ isOpen, onClose })
     return (
         <div  className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${isOpen ? 'opacity-100 z-50' : 'opacity-0 pointer-events-none'}`}>
             <div
-                className={`fixed right-0 top-0 w-362px h-full bg-white p-6 border border-gray-300 transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                className={`fixed right-0 top-0 w-362px iphone-14-pro-max:w-full h-full bg-white p-6 border border-gray-300 transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <button
                     onClick={onClose}
                     className="rounded-full bg-custom-grayed w-[32px] h-[32px] flex items-center outline-none border-none justify-center"
