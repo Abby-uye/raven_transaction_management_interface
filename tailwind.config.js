@@ -21,7 +21,7 @@ module.exports = {
       },
       screens: {
         'iphone-14-pro-max': {'min': '430px', 'max': '767px'},
-        'lg': {'min': '1024px', 'max': '1280px'},
+
 
       },
 

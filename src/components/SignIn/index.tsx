@@ -40,7 +40,7 @@ const SignIn :React.FC = ()=>{
      <div className="flex flex-col max-h-screen lg:relative lg:flex-row lg:justify-between min-h-screen bg-white">
          <div className="lg:w-[384px] bg-[#F0EEFF]   hidden lg:block"></div>
          <div className=" iphone-14-pro-max:absolute left-[24px] top-[56px] lg:absolute lg:ml-10">
-             <img className="w-24 iphone-14-pro-max:w-[107px] iphone-14-pro-max:h-[24px]
+             <img className="lg:w-24 w-[107px] h-[24px]
                  " src={logo} alt="logo"/>
          </div>
 
