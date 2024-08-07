@@ -60,10 +60,10 @@ const CreateAnAccount: React.FC = () => {
                  " src={logo} alt="logo"/>
             </div>
 
-                <div className=" sm:left-[240px]
+                <div className="
                  md:w-[335px]
-              absolute  top-[100px] lg:left-[380px]
-              gap-[40px] md:h-[528px]"
+              absolute  top-[100px] md:left-[380px]
+              gap-[40px] md:h-[528px] left-[24px]"
                      >
                         <p className="text-2xl font-aeonik mb-6 text-custom-black lg:w-[335px] "
                         style={{fontWeight:500,fontSize:40}}
@@ -95,7 +95,6 @@ const CreateAnAccount: React.FC = () => {
                                     required
                                     className="w-72 h-10 pl-3 shadow-md
                                     text-custom-placeholder-color
-
                                      font-plus-jakarta placeholder-custom-placeholder-color outline-none"
                                     style={{border:"1px solid #E4E4E7"}}/>
 
@@ -110,7 +109,6 @@ const CreateAnAccount: React.FC = () => {
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
                                     className="w-72 h-10 pl-3 rounded-md
-
                                     text-custom-placeholder-color
                                      font-plus-jakarta shadow-md
                                         outline-none"
@@ -127,7 +125,6 @@ const CreateAnAccount: React.FC = () => {
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
                                     className=" w-72 h-10 shadow-md pl-3
-
                                     rounded-md text-gray-800 placeholder-custom-placeholder-color
                                     font-plus-jakarta outline-none
                                      mb-7"
@@ -136,8 +133,8 @@ const CreateAnAccount: React.FC = () => {
                                 />
                             </div>
                             <button
-                                className="lg:w-[311px] outline-none border-none
-                                sm:w-[382px]
+                                className="outline-none border-none
+
                                w-72 h-10
                                 bg-custom-purple text-white
                                  font-bold rounded "
