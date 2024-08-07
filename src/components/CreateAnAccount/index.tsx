@@ -54,23 +54,23 @@ const CreateAnAccount: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col max-h-screen lg:relative lg:flex-row lg:justify-between min-h-screen bg-white">
-            <div className=" iphone-14-pro-max:absolute left-[24px] top-[56px] lg:mt-10 ml-10">
-                <img className="w-24 iphone-14-pro-max:w-[107px] iphone-14-pro-max:h-[24px]
+        <div className="flex flex-col max-h-screen relative md:flex-row md:justify-between min-h-screen bg-white">
+            <div >
+                <img className="w-[107px] absolute left-[24px] top-[56px] h-[24px]
                  " src={logo} alt="logo"/>
             </div>
 
-                <div className=" iphone-14-pro-max:left-[24px]
-                 lg:w-[335px] iphone-14-pro-max:top-[144px]
-                lg:top-[100px] lg:left-[380px]
-              absolute gap-[40px]"
+                <div className=" sm:left-[240px]
+                 lg:w-[335px]
+              absolute  top-[100px] lg:left-[380px]
+              gap-[40px] lg:h-[528px]"
                      >
                         <p className="text-2xl font-aeonik mb-6 text-custom-black lg:w-[335px] "
                         style={{fontWeight:500,fontSize:40}}
                         >Create Account</p>
                         <form className="space-y-4" onSubmit={handleSubmit}>
-                            <div className="mb-4">
-                                <label className="block text-custom-colourtext font-plus-jakarta mb-2" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>First name<span
+                            <div className="mb-2">
+                                <label className="block text-custom-colourtext font-plus-jakarta mb-1" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>First name<span
                                     className="text-red-500">*</span></label>
                                 <input
                                     type="text"
@@ -78,15 +78,15 @@ const CreateAnAccount: React.FC = () => {
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
                                     required
-                                    className="w-72 h-10  placeholder-custom-placeholder-color
-                                    iphone-14-pro-max:w-[382px]
-                                    iphone-14-pro-max:h-[56px] pl-3 drop-shadow-md
-                                    font-plus-jakarta rounded-md text-gray-800   outline-none"
+                                    className="lg:w-[311px] placeholder-custom-placeholder-color
+                                    sm:w-[382px]
+                                    sm:h-[56px] pl-3 drop-shadow-md
+                                    font-plus-jakarta rounded-md text-custom-placeholder-color outline-none"
                                     style={{border:"1px solid #E4E4E7"}}
                                 />
                             </div>
-                            <div className="mb-4">
-                                <label className="block  text-custom-colourtext font-plus-jakarta mb-2" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>Last name<span
+                            <div className="mb-2">
+                                <label className="block  text-custom-colourtext font-plus-jakarta mb-1" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>Last name<span
                                      className="text-red-500">*</span></label>
                                 <input
                                     type="text"
@@ -94,15 +94,15 @@ const CreateAnAccount: React.FC = () => {
                                     value={lastName}
                                     onChange={(e) => setLastName(e.target.value)}
                                     required
-                                    className="w-72 h-10  pl-3 shadow-md
-                                    iphone-14-pro-max:w-[382px] text-custom-placeholder-color
-                                    iphone-14-pro-max:h-[56px]
+                                    className="lg:w-[311px]  pl-3 shadow-md
+                                    sm:w-[382px] text-custom-placeholder-color
+                                    sm:h-[56px]
                                      font-plus-jakarta placeholder-custom-placeholder-color outline-none"
                                     style={{border:"1px solid #E4E4E7"}}/>
 
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-custom-colourtext font-plus-jakarta mb-2" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>Email<span
+                            <div className="mb-2">
+                                <label className="block text-custom-colourtext font-plus-jakarta mb-1" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>Email Address<span
                                     className="text-red-500">*</span></label>
                                 <input
                                     type="email"
@@ -110,16 +110,16 @@ const CreateAnAccount: React.FC = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    className="w-72 h-10  pl-3 rounded-md
-                                    iphone-14-pro-max:w-[382px]
+                                    className="lg:w-[311px] pl-3 rounded-md
+                                    sm:w-[382px]
                                     text-custom-placeholder-color
                                      font-plus-jakarta shadow-md placeholder-custom-placeholder-color
-                                       iphone-14-pro-max:h-[56px]  outline-none"
+                                       sm:h-[56px]  outline-none"
                                     style={{border:"1px solid #E4E4E7"}}
                                 />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-custom-colourtextn font-plus-jakarta mb-2" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>Password<span
+                            <div className="mb-2">
+                                <label className="block text-custom-colourtextn font-plus-jakarta mb-1" style={{fontWeight:500,fontSize:16,lineHeight:"24px"}}>Password<span
                                     className="text-red-500">*</span></label>
                                 <input
                                     type="password"
@@ -127,19 +127,19 @@ const CreateAnAccount: React.FC = () => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
-                                    className="w-72 h-10 shadow-md pl-3
-                                    iphone-14-pro-max:w-[382px]
+                                    className="lg:w-[311px] shadow-md pl-3
+                                    sm:w-[382px]
                                     rounded-md text-gray-800 placeholder-custom-placeholder-color
-                                     iphone-14-pro-max:h-[56px]  font-plus-jakarta outline-none
+                                     sm:h-[56px]  font-plus-jakarta outline-none
                                      mb-7"
 
                                     style={{border:"1px solid #E4E4E7"}}
                                 />
                             </div>
                             <button
-                                className="w-72 h-10  outline-none border-none
-                                iphone-14-pro-max:w-[382px]
-                                iphone-14-pro-max:h-[56px]
+                                className="lg:w-[311px] outline-none border-none
+                                sm:w-[382px]
+                                sm:h-[56px]
                                 bg-custom-purple text-white
                                  font-bold rounded "
                                 type="submit"
@@ -151,7 +151,7 @@ const CreateAnAccount: React.FC = () => {
                     </div>
 
 
-            <div className="lg:w-[384px] bg-[#F0EEFF]   hidden lg:block"></div>
+            <div className="lg:w-[384px] bg-[#F0EEFF]  hidden lg:block"></div>
         </div>
     );
 };

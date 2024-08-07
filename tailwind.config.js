@@ -19,11 +19,7 @@ module.exports = {
         'custom-border-color': '#E4E4E7'
 
       },
-      screens: {
-        'iphone-14-pro-max': {'min': '430px', 'max': '767px'},
 
-
-      },
 
     },
     plugins: [],
