@@ -372,7 +372,7 @@ const Dashboard: React.FC = () => {
                     </div>
                     <div className="md:hidden flex flex-col gap-4 mt-5 p-4">
                         {transactions.map((transaction, index) => (
-                            <div key={index} className="flex flex-row justify-between border p-4 rounded ">
+                            <div key={index} className="flex flex-row justify-between border  rounded ">
                                 <div className="flex flex-col  mb-2">
                                     <div className={"flex flex-row"}>
                                     <div
