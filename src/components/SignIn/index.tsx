@@ -40,7 +40,7 @@ const SignIn :React.FC = ()=>{
         <div className="flex flex-col max-h-screen relative md:flex-row md:justify-between min-h-screen bg-white">
             <div className="md:w-[384px] bg-[#F0EEFF]  hidden lg:block"></div>
             <div>
-                <img className="w-[107px] absolute left-[24px] top-[56px] h-[24px]
+                <img className="w-[107px] absolute left-[27px] top-[56px] h-[24px]
                  " src={logo} alt="logo"/>
             </div>
 

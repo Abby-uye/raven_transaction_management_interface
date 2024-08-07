@@ -152,18 +152,18 @@ const Dashboard: React.FC = () => {
     return (
         <>
             <div>
-                <div className={"iphone-14-pro-max:hidden"}>
+                <div className={"md:block hidden"}>
                     <NavBar/>
                 </div>
 
-                <div className={"lg:hidden flex flex-row w-[430px] justify-between h-[100px] mt-[36px] "}>
+                <div className={"md:hidden flex flex-row w-[400px] justify-between h-[100px] mt-[36px] "}>
                     <SidebarBurger isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
-                        <p className={"font-aeonik h-25px"} style={{fontWeight:"400px", fontSize:"20px"}}>Transaction</p>
-                    <img className={"w-[40px] h-[48px]"} src={avatar} alt={"profile image"}/>
+                        <p className={"font-aeonik h-25px text-[20px] font-[400px"}>Transaction</p>
+                    <img className={"w-[40px] h-[40px]"} src={avatar} alt={"profile image"}/>
                 </div>
             </div>
             <div className={styles.dashboard}>
-                <div className="flex flex-col w-[260px] iphone-14-pro-max:hidden h-[790px] bg-[#7000F6]">
+                <div className=" md:flex md:flex-col md:w-[260px] hidden md:h-[790px] md:bg-[#7000F6]">
                     <div className={styles.userProfile}>
                         <div className={styles.nameAbrv}>
                             {lastNameAbbrv + "" + firstNameAbbrv}
@@ -175,7 +175,7 @@ const Dashboard: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="lg:flex pl-7 mt-7 space-y-7 font-aeonik text-base">
+                    <div className="md:flex md:pl-7 md:mt-7 md:space-y-7 md:font-aeonik md:text-base">
 
                         <div>
                             {[
@@ -191,35 +191,35 @@ const Dashboard: React.FC = () => {
                                 {icon: faCog, label: 'Settings'}
                             ].map((item, index) => (
                                 <div key={index}
-                                     className="flex items-center py-2 text-white hover:bg-purple-900 rounded-md px-2">
-                                    <FontAwesomeIcon icon={item.icon} className="mr-3 text-[rgba(255, 255, 255, 0.72] h-[16px] w-16px]"/>
-                                    <p className={"font-aeonik font-[500] text-[rgba(255, 255, 255, 0.72] text-[16px]"}>{item.label}</p>
+                                     className="md:flex md:items-center md:py-2 md:text-white md:hover:bg-purple-900 md:rounded-md md:px-2">
+                                    <FontAwesomeIcon icon={item.icon} className="md:mr-3 md:text-[rgba(255, 255, 255, 0.72] md:h-[16px] w-16px]"/>
+                                    <p className={"md:font-aeonik font-[500] text-[rgba(255, 255, 255, 0.72] text-[16px]"}>{item.label}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                <div className={"lg:ml-[40px] mt-[10px] iphone-14-pro-max:ml-[5px]"}>
-                    <div className={"flex flex-row iphone-14-pro-max:gap-[100px] lg:justify-between lg:w-815px"}>
+                <div className={"md:ml-[40px] mt-[10px] ml-[5px]"}>
+                    <div className={"flex flex-row gap-[100px] md:justify-between md:w-815px"}>
                         <div className={"w-317px h-53px"}>
-                            <h3 className={"font-aeonik font-medium iphone-14-pro-max:text-[20px] iphone-14-pro-max:ml-[10px] lg:text-[32px]"}>Transactions</h3>
-                            <p className={"font-aeonik font-medium text-[14px] iphone-14-pro-max:ml-[10px]"}>View all your transactions in the list
+                            <h3 className={"font-aeonik font-medium text-[20px] ml-[10px] md:text-[32px]"}>Transactions</h3>
+                            <p className={"font-aeonik font-medium text-[14px] ml-[10px]"}>View all your transactions in the list
                                 of product</p>
                         </div>
 
-                        <div className={"mt-[10px] iphone-14-pro-max:mr-[10px]"}>
-                            <img className={"iphone-14-pro-max:h-[56px] iphone-14-pro-max:w-[56px] "}
+                        <div className={"md:mr-[10px] mr-[30px]"}>
+                            <img className={"md:h-[56px] md:w-[56px] h-[44px] w-[44px] "}
                                  onClick={handleNewTransactionModalOpen} src={addTransactionImage}
-                                 alt={"add transaction"} width={35}/>
+                                 alt={"add transaction"}/>
                         </div>
 
                     </div>
 
-                    <div className={"flex flex-row gap-[35px] mt-[10px] lg:w-[815px] " +
-                        "lg:[120px] iphone-14-pro-max:w-[430px] iphone-14-pro-max:h-[170px]" +
+                    <div className={"flex flex-row gap-[35px] mt-[10px] md:w-[815px] " +
+                        "md:[120px] w-[430px] h-[170px]" +
                         " mt-[20px] "}>
-                        <div className={"bg-[#F9F9F9] w-[258.33px] lg-h-[120px] p-[16px] "}>
+                        <div className={"bg-[#F9F9F9] w-[258.33px] md:-h-[120px] p-[16px] "}>
                             <div>
                                 <h4 className={"font-aeonik font-[500px] text-[12px] text-[#223E3B]"}>
                                     Total Balance
@@ -234,7 +234,7 @@ const Dashboard: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className={"bg-[#F9F9F9] lg:w-[258.33px] lg-h-[120px] p-[16px] "}>
+                        <div className={"bg-[#F9F9F9] md:w-[258.33px] md:[120px] md:p-[16px] "}>
                             <div>
                                 <h4 className={"font-aeonik font-[500px] text-[12px] text-[#0C296A]"}>
                                     Total Credit
@@ -250,7 +250,7 @@ const Dashboard: React.FC = () => {
 
 
                         <div
-                            className={"bg-[#F9F9F9] lg:w-[258.33px] lg-h-[120px] lg:p-[16px] iphone-14-pro-max:hidden"}>
+                            className={"bg-[#F9F9F9] md:w-[258.33px] md:-h-[120px] md:block md:p-[16px] hidden"}>
 
                             <div>
                                 <h4 className={"font-aeonik font-[500px] text-[12px] text-[#223E3B]"}>
@@ -268,15 +268,15 @@ const Dashboard: React.FC = () => {
                     </div>
 
                     <div
-                        className={"flex flex-row lg:w-[815px] justify-between mt-[35px]  iphone-14-pro-max:w-[430px] h-[72px]"}>
+                        className={"flex flex-row md:w-[815px] justify-between mt-[35px]  w-[430px] h-[72px]"}>
                         <form>
                             <input
                                 type="text"
                                 placeholder={"Search Transactions"}
-                                className="bg-white w-[256px] iphone-14-pro-max:w-[325px] text-[#71717A] h-[40px] border pl-[10px] border-[#E4E4E7]"
+                                className="bg-white md:w-[256px] w-[325px] outline-none text-[#71717A] h-[40px] border pl-[10px] border-[#E4E4E7]"
                             />
                         </form>
-                        <div className={"flex flex-row gap-[8px] iphone-14-pro-max:hidden w-[254px] h-[40px]"}>
+                        <div className={"md:flex md:flex-row md:gap-[8px] hidden md:w-[254px] md:h-[40px]"}>
                             <div className={"flex w-[102px] flex-row gap-[16px] border border-[#E4E4E7] p-[8px]"}>
                                 <div className={"mr-[10px]"}><img className={"w-[16px] h-[16px] absolute "}
                                                                   src={listFilter} alt={"filter"}/></div>
@@ -298,16 +298,16 @@ const Dashboard: React.FC = () => {
                             </div>
                         </div>
                         <div
-                            className="border border-[#E4E4E7] lg:hidden rounded-[2px] w-[44px] mr-[10px] h-[40px] flex items-center justify-center">
+                            className="md:border md:border-[#E4E4E7] rounded-[2px] w-[44px] mr-[10px] h-[40px] md:flex md:items-center md:justify-center">
                             <img className="w-[22px] h-[22px] " src={listFilter} alt="filter"/>
                         </div>
                     </div>
-                    <div className={"lg:w-[815px] iphone-14-pro-max:hidden"}>
+                    <div className={"md:w-[815px] md:block hidden"}>
                         <div className="overflow-x-auto ">
                             <table className=" divide-y divide-gray-200 border border-gray-200">
                                 <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="px-6 py-3  text-left text-[14px] lg:w-158px] font-aeonik text-[#111827]-500 tracking-wider">Reference</th>
+                                    <th className="px-6 py-3  text-left text-[14px] md:w-158px] font-aeonik text-[#111827]-500 tracking-wider">Reference</th>
                                     <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-widerr">Amount</th>
                                     <th className="px-6 py-3 text-left text-[14px] font-aeonik text-[#111827]-500 tracking-wider">Transaction
                                         Date
@@ -341,11 +341,11 @@ const Dashboard: React.FC = () => {
                                             {naira[index]} {amounts[index]}
                                         </td>
 
-                                        <td className="px-6 py-4 whitespace-nowrap lg:w-[i68px] text-[14px] font-aeonik font-[400px] text-{#4B5563}">{transaction_date[index]}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-{#4B5563} text-[14px] font-aeonik font-[400px] lg:w-[i68px] text-gray-900">{updated_date[index]}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap md:w-[i68px] text-[14px] font-aeonik font-[400px] text-{#4B5563}">{transaction_date[index]}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-{#4B5563} text-[14px] font-aeonik font-[400px] md:w-[i68px] text-gray-900">{updated_date[index]}</td>
                                         <td className=" whitespace-nowrap    ">
                                             <p className={"bg-[#E8FFF6] pt-[8px] pr-[12px] pb-[8px] pl-[12px] font-[400px] rounded-[72px] flex items-center " +
-                                                "lg:w-[72px] mr-[10px] lg:h-[28px] font-aeonik text-[#1ACE37]  text-[12px] "}>Success</p>
+                                                "md:w-[72px] mr-[10px] md:h-[28px] font-aeonik text-[#1ACE37]  text-[12px] "}>Success</p>
                                         </td>
                                         <td className=" px-6 py-4whitespace-nowrap text-sm font-aeonik font-[400px] bg-font-medium text-{#4B5563}">
 
@@ -370,7 +370,7 @@ const Dashboard: React.FC = () => {
                             </table>
                         </div>
                     </div>
-                    <div className="lg:hidden flex flex-col gap-4 mt-5 p-4">
+                    <div className="md:hidden flex flex-col gap-4 mt-5 p-4">
                         {transactions.map((transaction, index) => (
                             <div key={index} className="flex flex-row justify-between border p-4 rounded ">
                                 <div className="flex flex-col  mb-2">
