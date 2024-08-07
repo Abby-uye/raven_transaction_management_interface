@@ -36,75 +36,73 @@ const SignIn :React.FC = ()=>{
         }
     };
 
- return(
-     <div className="flex flex-col max-h-screen lg:relative lg:flex-row lg:justify-between min-h-screen bg-white">
-         <div className="lg:w-[384px] bg-[#F0EEFF]   hidden lg:block"></div>
-         <div className=" iphone-14-pro-max:absolute left-[24px] top-[56px] lg:absolute lg:ml-10">
-             <img className="lg:w-24 w-[107px] h-[24px]
+    return (
+        <div className="flex flex-col max-h-screen relative md:flex-row md:justify-between min-h-screen bg-white">
+            <div className="md:w-[384px] bg-[#F0EEFF]  hidden lg:block"></div>
+            <div>
+                <img className="w-[107px] absolute left-[24px] top-[56px] h-[24px]
                  " src={logo} alt="logo"/>
-         </div>
+            </div>
 
+            <div className="
+                 md:w-[335px]
+              absolute  top-[100px] md:left-[580px]
+              gap-[40px] md:h-[528px] left-[24px]"
+            >
+                <p className=" font-aeonik font-[500px] mb-6 text-custom-black md:w-[335px] text-[30px] "
+                >Sign in</p>
+                <form className="space-y-4" onSubmit={handleSubmit}>
 
-         <div className=" iphone-14-pro-max:left-[24px]
-                 lg:w-[335px] iphone-14-pro-max:top-[144px]
-                lg:top-[100px] lg:left-[580px]
-              absolute gap-[40px]"
-         >
-             <p className="text-2xl font-aeonik mb-6 text-custom-black lg:w-[335px] "
-                style={{fontWeight: 500, fontSize: 40}}
-             >Sign in</p>
-             <form className="space-y-4" onSubmit={handleSubmit}>
-                 <div className="mb-4">
-                     <label className="block text-custom-colourtext font-plus-jakarta mb-2"
-                            style={{fontWeight: 500, fontSize: 16, lineHeight: "24px"}}>Email<span
-                         className="text-red-500">*</span></label>
-                     <input
-                         type="email"
-                         placeholder="Enter Email Address"
-                         value={email}
-                         onChange={(e) => setEmail(e.target.value)}
-                         required
-                         className="w-72 h-10  pl-3 rounded-md
-                                    iphone-14-pro-max:w-[382px]
+                    <div className="mb-2">
+                        <label className="block text-custom-colourtext font-plus-jakarta mb-1"
+                               style={{fontWeight: 500, fontSize: 16, lineHeight: "24px"}}>Email Address<span
+                            className="text-red-500">*</span></label>
+                        <input
+                            type="email"
+                            placeholder="Enter Email Address"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="w-72 h-10 pl-3 rounded-md
                                     text-custom-placeholder-color
-                                     font-plus-jakarta shadow-md placeholder-custom-placeholder-color
-                                       iphone-14-pro-max:h-[56px]  outline-none"
-                         style={{border: "1px solid #E4E4E7"}}
-                     />
-                 </div>
-                 <div className="mb-4">
-                     <label className="block text-custom-colourtextn font-plus-jakarta mb-2"
-                            style={{fontWeight: 500, fontSize: 16, lineHeight: "24px"}}>Password<span
-                         className="text-red-500">*</span></label>
-                     <input
-                         type="password"
-                         placeholder="Enter password"
-                         value={password}
-                         onChange={(e) => setPassword(e.target.value)}
-                         required
-                         className="w-72 h-10 shadow-md pl-3
-                                    iphone-14-pro-max:w-[382px]
+                                     font-plus-jakarta shadow-md
+                                        outline-none"
+                            style={{border: "1px solid #E4E4E7"}}
+                        />
+                    </div>
+                    <div className="mb-2">
+                        <label className="block text-custom-colourtextn font-plus-jakarta mb-1"
+                               style={{fontWeight: 500, fontSize: 16, lineHeight: "24px"}}>Password<span
+                            className="text-red-500">*</span></label>
+                        <input
+                            type="password"
+                            placeholder="Enter password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            className=" w-72 h-10 shadow-md pl-3
                                     rounded-md text-gray-800 placeholder-custom-placeholder-color
-                                     iphone-14-pro-max:h-[56px]  font-plus-jakarta outline-none
+                                    font-plus-jakarta outline-none
                                      mb-7"
 
-                         style={{border: "1px solid #E4E4E7"}}
-                     />
-                 </div>
-                 <button
-                     className="w-72 h-10  outline-none border-none
-                                iphone-14-pro-max:w-[382px]
-                                iphone-14-pro-max:h-[56px]
+                            style={{border: "1px solid #E4E4E7"}}
+                        />
+                    </div>
+                    <button
+                        className="outline-none border-none
+
+                               w-72 h-10
                                 bg-custom-purple text-white
                                  font-bold rounded "
-                     type="submit"
-                     style={{backgroundColor: "#7000F6", fontWeight: 500}}
-                 >
-                     Sign in
-                 </button>
-             </form>
-         </div>
-     </div>
- );
+                        type="submit"
+                        style={{backgroundColor: "#7000F6", fontWeight: 500}}
+                    >
+                       Sign in
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    );
 };
 export default SignIn

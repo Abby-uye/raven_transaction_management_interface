@@ -65,8 +65,8 @@ const CreateAnAccount: React.FC = () => {
               absolute  top-[100px] md:left-[380px]
               gap-[40px] md:h-[528px] left-[24px]"
                      >
-                        <p className="text-2xl font-aeonik mb-6 text-custom-black lg:w-[335px] "
-                        style={{fontWeight:500,fontSize:40}}
+                        <p className="font-aeonik mb-6 text-custom-black font-[500px] md:w-[335px] text-[30px] "
+
                         >Create Account</p>
                         <form className="space-y-4" onSubmit={handleSubmit}>
                             <div className="mb-2">
